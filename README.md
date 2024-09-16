@@ -4,17 +4,14 @@ Simulation for Turtle WoW that currently supports Fire/Frost Mages and Warlocks.
 
 ## Installation
 
-Need python 3.10 or later and Poetry to install dependencies
+Need python 3.10 or later
 
-https://www.python.org/downloads/
+For windows users, run installer.bat
 
-`pip install poetry` or `pipx install poetry`
 
-`poetry shell`
+`python simulations/mage.py`
 
-`poetry install`
-
-`poetry run examples/mage.py`
+`python simulations/mage.py`
 
 ## Usage
 For a single iteration:

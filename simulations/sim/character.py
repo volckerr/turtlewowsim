@@ -23,6 +23,7 @@ class CooldownUsages:
     # Trinkets
     toep: Optional[float] = None
     mqg: Optional[float] = None
+    reos: Optional[float] = None
 
 
 class Character:
@@ -79,7 +80,7 @@ class Character:
 
     def _random_delay(self, secs=2):
         if secs:
-            delay = round(random.random() * secs, 2)
+            delay = 1 #round(random.random() * secs, 2)
             self.print(f"Random initial delay of {delay} seconds")
             yield self.env.timeout(delay)
 
