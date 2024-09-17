@@ -1,0 +1,18 @@
+[project]
+name = "turtlewowsim"
+version = "1.0.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "volckerr", email = "volckerr@users.noreply.github.com"},
+]
+dependencies = [
+    "simpy==4.1.1",
+    "tqdm==4.46.1",
+]
+requires-python = "==3.11.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
