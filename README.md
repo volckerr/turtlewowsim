@@ -6,7 +6,15 @@ Simulation for Turtle WoW that currently supports Fire/Frost Mages and Warlocks.
 
 Need python 3.10 or later
 
-For windows users, run installer.bat
+pip install pdm
+
+pdm install
+
+pdm run src/turtlewowsim/num_lock_test.py
+
+or
+
+python src/turtlewowsim/num_lock_test.py
 
 
 `python simulations/mage.py`

@@ -135,9 +135,26 @@ class Simulation:
 
     def detailed_report(self):
         for char in self.results['dps']:
-            label = f"{char} average DPS"
-            print(
-                f"{self._justify(label)}: {mean(self.results['dps'][char])} in {mean(self.results['casts'][char])} casts")
+            label = f"{char} DPS Mean"
+            print(f"{self._justify(label)}: {mean(self.results['dps'][char])} in {mean(self.results['casts'][char])} casts")
+            label = f"{char} DPS standard deviation"
+            print(f"{self._justify(label)}: {np.std(self.results['dps'][char])}")
+            label = f"{char} DPS min"
+            print(f"{self._justify(label)}: {np.min(self.results['dps'][char])}")
+            label = f"{char} DPS 25th percentile"
+            print(f"{self._justify(label)}: {np.percentile(self.results['dps'][char], 25)}")
+            label = f"{char} DPS 50th percentile"
+            print(f"{self._justify(label)}: {np.percentile(self.results['dps'][char], 50)}")
+            label = f"{char} DPS 75th percentile"
+            print(f"{self._justify(label)}: {np.percentile(self.results['dps'][char], 75)}")
+            label = f"{char} DPS max"
+            print(f"{self._justify(label)}: {np.max(self.results['dps'][char])}")
+            
+            #label = f"{char} DPS Variance"
+            #print(f"{self._justify(label)}: {np.var(self.results['dps'][char])}")
+
+
+
 
         print(f"{self._justify('Total spell dmg')}: {mean(self.results['total_spell_dmg'])}")
         print(f"{self._justify('Total dot dmg')}: {mean(self.results['total_dot_dmg'])}")
