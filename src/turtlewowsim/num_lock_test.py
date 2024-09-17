@@ -17,5 +17,7 @@ for i in range(num_locks):
     locks.append(lock)
 
 sim = Simulation(characters=locks)
-sim.run(iterations=10000, duration=60)
+sim.run(iterations=1000, duration=60)
 sim.detailed_report()
+sim.histogram_report_individual()
+sim.histogram_report_overlay()

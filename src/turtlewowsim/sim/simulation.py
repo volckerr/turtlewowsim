@@ -8,6 +8,11 @@ from sim.character import Character
 from sim.env import Environment
 from sim.utils import mean, mean_percentage
 
+# histogram dependencies
+import plotly.express as px
+import numpy as np
+import plotly.graph_objects as go
+
 
 class Simulation:
     def __init__(self,
@@ -170,3 +175,24 @@ class Simulation:
             print(f"{self._justify('ISB uptime')}: {mean(self.results['ISB uptime'])}%")
             print(f"{self._justify('Total added dot dmg')}: {mean(self.results['Total added dot dmg'])}")
             print(f"{self._justify('Total added spell dmg')}: {mean(self.results['Total added spell dmg'])}")
+
+    
+    def histogram_report_individual(self):
+
+        for char in self.results['dps']:
+
+            fig = px.histogram(x=self.results['dps'][char], histnorm='probability density')
+            fig.update_layout(title=f"DPS of {char}")
+            fig.show()
+
+    def histogram_report_overlay(self):
+
+        fig = go.Figure()
+        for char in self.results['dps']:            
+            fig.add_trace(go.Histogram(x=self.results['dps'][char], name=char))
+            
+        # Overlay both histograms
+        fig.update_layout(title=f"DPS Distributions", barmode='overlay')
+        # Reduce opacity to see both histograms
+        fig.update_traces(opacity=0.50)
+        fig.show()
